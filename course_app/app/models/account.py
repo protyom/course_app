@@ -7,7 +7,11 @@ from rest_framework.exceptions import PermissionDenied
 
 class BankAccount(models.Model):
     uuid = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    public_number = models.CharField(max_length=512)
+    public_number = models.CharField(max_length=513)
+
+    factor_1 = models.CharField(max_length=513, blank=True, null=True)
+    factor_2 = models.CharField(max_length=66, blank=True, null=True)
+    beta = models.CharField(max_length=513, blank=True, null=True)
 
     users = models.ManyToManyField(
         get_user_model(),
@@ -34,7 +38,6 @@ class BankAccount(models.Model):
         self.users.add(user)
         self.save()
         to_account.save()
-
 
 
 class Transaction(models.Model):

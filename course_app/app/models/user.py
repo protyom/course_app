@@ -7,9 +7,6 @@ from course_app.app.managers import OverrideUserManager
 
 
 class User(AbstractUser):
-
-
-
     username = None
     email = models.EmailField(
         verbose_name='email address',

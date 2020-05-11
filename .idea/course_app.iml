@@ -16,7 +16,7 @@
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/venv" />
     </content>
-    <orderEntry type="jdk" jdkName="Remote Python 3.6.9 Docker Compose (web at [C:\Users\proty\PycharmProjects\course_app\course_app\docker-compose.yml])" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Remote Python 3.6.9 Docker Compose (web at [/home/protyom/PycharmProjects/course_app/course_app/docker-compose.yml])" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="TemplatesService">
@@ -26,8 +26,5 @@
         <option value="$MODULE_DIR$/../course_app\templates" />
       </list>
     </option>
-  </component>
-  <component name="TestRunnerService">
-    <option name="PROJECT_TEST_RUNNER" value="Unittests" />
   </component>
 </module>

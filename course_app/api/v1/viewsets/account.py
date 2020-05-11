@@ -71,13 +71,14 @@ class DetailAccountViewSet(viewsets.ModelViewSet):
             return Response({'details': 'Recipient account does not exist'},
                             status=status.HTTP_400_BAD_REQUEST)
 
-        beta = int(settings.BETA, 16)
+        beta = int(account.beta, 16)
         evaluated = int(serializer.validated_data['evaluated'], 16)
-        factor1 = int(settings.FACTOR_1, 16)
+        factor1 = int(account.factor_1, 16)
         public_key = int(account.public_number, 16)
-
+        print(factor1, beta, public_key)
         result = (fast_power(beta, evaluated, factor1)
                   * fast_power(public_key, evaluation_parameter, factor1)) % factor1
+        print(result)
         if result != pay_code:
             return Response({'details': 'Payment was not verified'},
                             status=status.HTTP_403_FORBIDDEN)
