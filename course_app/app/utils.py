@@ -1,17 +1,29 @@
+import math
 
 
-def fast_power(base, power, mod):
-    result = 1
-    while power > 0:
+def mon_pro(a_, b_, n, k, r_, n_):
+    r = 1 << k
+    t = a_ * b_
+    u = (t + ((t*n_) & (r - 1))*n) >> k
+    while u >= n:
+        u -= n
+    return u
 
-        if power % 2 == 1:
-            result = (result * base) % mod
 
-        power = power // 2
+def fast_power(a, e, n):
+    k = math.floor(math.log2(n)) + 1
+    r = 1 << k
+    gcd, r_, n_ = egcd(r, n)
+    n_ = -n_
+    a_ = (a * r) % n
+    x_ = r % n
+    while e:
+        if e & 1:
+            x_ = mon_pro(a_, x_, n, k, r_, n_)
+        a_ = mon_pro(a_, a_, n, k, r_, n_)
+        e >>= 1
 
-        base = (base * base) % mod
-
-    return result
+    return x_*r_ % n
 
 
 def egcd(b, n):
