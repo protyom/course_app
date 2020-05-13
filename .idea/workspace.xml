@@ -19,16 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0210903b-f96f-4c5d-b684-b28123d03818" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/course_app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/course_app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/course_app/api/v1/serializers/account.py" beforeDir="false" afterPath="$PROJECT_DIR$/course_app/api/v1/serializers/account.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/course_app/api/v1/viewsets/account.py" beforeDir="false" afterPath="$PROJECT_DIR$/course_app/api/v1/viewsets/account.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/course_app/app/models/account.py" beforeDir="false" afterPath="$PROJECT_DIR$/course_app/app/models/account.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/course_app/app/models/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/course_app/app/models/user.py" afterDir="false" />
-    </list>
+    <list default="true" id="0210903b-f96f-4c5d-b684-b28123d03818" name="Default Changelist" comment="Add public keys to all users" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -112,8 +103,16 @@
       <workItem from="1588416706642" duration="1484000" />
       <workItem from="1588420435363" duration="15938000" />
       <workItem from="1589111832480" duration="1692000" />
-      <workItem from="1589115081665" duration="5619000" />
+      <workItem from="1589115081665" duration="6065000" />
     </task>
+    <task id="LOCAL-00001" summary="Add public keys to all users">
+      <created>1589186048449</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1589186048449</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -130,6 +129,10 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add public keys to all users" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add public keys to all users" />
   </component>
   <component name="WindowStateProjectService">
     <state x="774" y="391" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589115084081">
