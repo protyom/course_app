@@ -16,13 +16,10 @@ class ShortAccountSerializer(serializers.ModelSerializer):
 
 def generate_primes():
     is_prime = False
-    p, q, x = 0, 0, 0
+    p, q, x = 0, number.getPrime(512), 0
     while not is_prime:
-        q = number.getPrime(257)
-        x = random.getrandbits(1791)
-
-        p = q*x + 1
-
+        x = random.getrandbits(511) * 2
+        p = q * x + 1
         is_prime = number.isPrime(p)
     return p, q, x
 

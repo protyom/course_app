@@ -7,11 +7,11 @@ from rest_framework.exceptions import PermissionDenied
 
 class BankAccount(models.Model):
     uuid = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    public_number = models.CharField(max_length=513)
+    public_number = models.CharField(max_length=257)
 
-    factor_1 = models.CharField(max_length=513, blank=True, null=True)
-    factor_2 = models.CharField(max_length=66, blank=True, null=True)
-    beta = models.CharField(max_length=513, blank=True, null=True)
+    factor_1 = models.CharField(max_length=257, blank=True, null=True)
+    factor_2 = models.CharField(max_length=129, blank=True, null=True)
+    beta = models.CharField(max_length=257, blank=True, null=True)
 
     users = models.ManyToManyField(
         get_user_model(),
