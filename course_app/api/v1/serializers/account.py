@@ -52,10 +52,27 @@ class FullAccountSerializer(serializers.ModelSerializer):
 
 
 class TransactionSerializer(serializers.ModelSerializer):
+    factor_1 = serializers.CharField(source='from_account.factor_1')
+    beta = serializers.CharField(source='from_account.beta')
+    public_number = serializers.CharField(source='from_account.public_number')
+    from_uuid = serializers.CharField(source='from_account.uuid')
+
+    is_validated = serializers.SerializerMethodField()
 
     class Meta:
         model = Transaction
-        fields = '__all__'
+        fields = ('factor_1', 'from_uuid', 'beta', 'public_number', 'pay_code', 'challenge', 'evaluated', 'is_validated')
+
+    def get_is_validated(self, obj: Transaction):
+        pay_code = int(obj.pay_code, 16)
+        beta = int(obj.from_account.beta, 16)
+        factor1 = int(obj.from_account.factor_1, 16)
+        evaluated = int(obj.evaluated, 16)
+        public_number = int(obj.from_account.public_number, 16)
+        challenge = int(obj.challenge, 16)
+        result = (fast_power(beta, evaluated, factor1)
+         * fast_power(public_number, challenge, factor1)) % factor1
+        return result == pay_code
 
 
 class PaymentSerializer(serializers.Serializer):

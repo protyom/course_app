@@ -28,6 +28,11 @@ class AccountViewSet(viewsets.ReadOnlyModelViewSet):
         return Response(response, status=status.HTTP_200_OK)
 
 
+class TransactionViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = Transaction.objects.all()
+    serializer_class = TransactionSerializer
+
+
 class DetailAccountViewSet(viewsets.ModelViewSet):
 
     serializer_class = FullAccountSerializer
