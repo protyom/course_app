@@ -25,7 +25,7 @@ class BankAccount(models.Model):
 
     balance = models.PositiveIntegerField(default=0)
 
-    def pay(self, user, to_account, funds):
+    def pay(self, user, to_account, funds, **kwargs):
         if self.balance < funds:
             raise PermissionDenied({'details': 'Insufficient funds'})
         self.balance -= funds
@@ -33,7 +33,8 @@ class BankAccount(models.Model):
         Transaction.objects.create(
             from_account=self,
             to_account=to_account,
-            funds=funds
+            funds=funds,
+            **kwargs
         )
         self.users.add(user)
         self.save()
@@ -53,3 +54,6 @@ class Transaction(models.Model):
     )
 
     funds = models.PositiveIntegerField(validators=(MinValueValidator(1),))
+    pay_code = models.CharField(max_length=257, blank=True, null=True)
+    challenge = models.CharField(max_length=129, blank=True, null=True)
+    evaluated = models.CharField(max_length=129, blank=True, null=True)

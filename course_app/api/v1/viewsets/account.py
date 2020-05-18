@@ -82,7 +82,16 @@ class DetailAccountViewSet(viewsets.ModelViewSet):
         if result != pay_code:
             return Response({'details': 'Payment was not verified'},
                             status=status.HTTP_403_FORBIDDEN)
-        account.pay(request.user, to_account, serializer.validated_data['funds'])
+        account.pay(
+            request.user,
+            to_account,
+            serializer.validated_data['funds'],
+            challenge=hex(evaluation_parameter)[2:],
+            pay_code=hex(pay_code)[2:],
+            evaluated=serializer.validated_data['evaluated']
+        )
+        cache.delete(f'{account.uuid}_pay_code')
+        cache.delete(f'{account.uuid}_evaluation_parameter')
         return Response({'details': 'Ok'}, status=status.HTTP_200_OK)
 
     @action(detail=True, methods=['post'])
